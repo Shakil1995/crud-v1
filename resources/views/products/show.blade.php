@@ -1,7 +1,9 @@
 @extends('products.layouts')
 @section('title','Show Product')
+
 @section('content')
     <div class="row  ">
+        <div class="col-md-12">
 
         <a href="{{ route('products.index') }}" class="btn btn-success mb-3">Back</a>
 
@@ -42,6 +44,6 @@
                 </div>
             </div>
         </div>
-
+    </div>
     </div>
 @endsection

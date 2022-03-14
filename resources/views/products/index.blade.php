@@ -1,8 +1,10 @@
 @extends('products.layouts')
 @section('title',' Product')
+
 @section('content')
 
 <div class="row ">
+    <div class="col-md-12">
 
     <a href="{{ route('products.create') }}" class="btn btn-success mb-3">Add Product</a>
 
@@ -17,8 +19,8 @@
 
             </tr>
         </thead>
-        <tbody>
 
+        <tbody>
             @if ($products)
                 @foreach ($products as $key => $product)
                     <tr class="text-center">
@@ -28,28 +30,23 @@
                         <td>{{ $product->stock }}</td>
                         <td>
                             <form action="{{ route('products.destroy',$product->id) }}" method="POST">
-                            <a href="{{ route('products.show', $product->id) }}" class="btn btn-sm btn-primary"> <i
+                                 <a href="{{ route('products.show', $product->id) }}" class="btn btn-sm btn-primary"> <i
                                     class="fa fa-eye"></i></a>
-                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-info"> <i
+                                 <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-info"> <i
                                     class="fa fa-edit"></i></a>
                                       @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                  </form>
-                            
-
+                            </form>                          
                         </td>
                     </tr>
                 @endforeach
-
             @endif
-
-
-
 
         </tbody>
 
     </table>
-
+    
+  </div>
 </div>
 @endsection

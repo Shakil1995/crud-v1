@@ -1,8 +1,10 @@
 @extends('products.layouts')
 @section('title','Update Product')
+
 @section('content')
     
 <div class="row ">
+  <div class="col-md-12">
 
     <a href="{{ route('products.index') }}" class="btn btn-success mb-3">Back</a>
   
@@ -12,9 +14,12 @@
         <div class="card-header">
           <h3 class="card-title">Update Product Data</h3>
         </div>
+
         <form  method="post" action="{{ route('products.update',$product->id) }}" enctype="multipart/form-data" >
+
           @csrf
           @method('PUT')
+          
           <div class="card-body">
             <div class="form-group">
               <label for="">Name</label>
@@ -49,11 +54,12 @@
           <div class="card-footer">
             <button type="submit" class="btn btn-primary">Update</button>
           </div>
+
         </div>
         </form>
       </div>
     </div>
   </div>
-  
+</div>
   </div>
 @endsection
